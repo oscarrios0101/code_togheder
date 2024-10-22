@@ -112,9 +112,12 @@ function renderCart() {
         // Add code to handle the "borrar producto" action
       } else if (event.target.id === "eliminar-producto") {
         console.log("eliminar producto");
+        event.target.closest(".cart__div").remove();
         // Add code to handle the "eliminar producto" action
       } else if (event.target.id === "aumentar-producto") {
         console.log("aumentar producto");
+        console.log("");
+
         // Add code to handle the "aumentar producto" action
       }
     });
