@@ -40,7 +40,7 @@ header .header__i {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 35%;
+  width: 450px;
   height: 700px;
   background-color: #999;
   border-radius: 5px;
@@ -112,4 +112,32 @@ header .header__i {
   justify-content: center;
   max-width: 100%;
   height: auto;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 50px;
+  border: 2px solid red;
+  width: 100%;
+  place-items: center;
+  padding: 20px;
+}
+.products article {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  border: 2px solid #fff;
+}
+.products img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 80%;
 }/*# sourceMappingURL=main.css.map */

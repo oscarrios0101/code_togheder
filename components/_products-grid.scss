@@ -1,0 +1,34 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 50px;
+  border: 2px solid red;
+  width: 100%;
+  place-items: center;
+  padding: 20px;
+
+  article {
+    padding: 10px;
+    display: flex;
+    @include flexbox-column;
+    width: 100%;
+    height: auto;
+    border: 2px solid $secondary-color;
+  }
+
+  img {
+    object-fit: cover;
+    width: 80%;
+  }
+}
+//   grid-template-columns: repeat(4, 1fr);
+
+//   gap: 20px;
+//   padding: 20px;
+//   @include laptops {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+//   @include tablets {
+//     grid-template-columns: repeat(1, 1fr);
+//   }
+// }

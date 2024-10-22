@@ -11,3 +11,11 @@ const closeCart = document.querySelector("#cerrar-carrito");
 closeCart.addEventListener("click", () => {
   cart.classList.toggle("show");
 });
+
+const product1 = {
+  id: 1,
+  name: "Camisa negra bonita",
+  price: 555,
+  image: "img/black_shirt.jpg",
+  quantity: 1,
+};
