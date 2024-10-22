@@ -1,0 +1,12 @@
+@import "mixins";
+@import "base";
+@import "layout";
+
+// importar header
+@import "components/_header.scss";
+
+// importar banner
+@import "components/_banner.scss";
+
+// importar carrito
+@import "components/_cart.scss";

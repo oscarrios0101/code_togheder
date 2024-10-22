@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- css styles -->
+    <link rel="stylesheet" href="main.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tienda en linea</title>
+  </head>
+  <body>
+    <script src="main.js" defer></script>
+
+    <header>
+      <i class="header__i" data-feather="menu"></i>
+      <img
+        src="img/Gemini_Generated_Image_4n0iw34n0iw34n0i.jpg"
+        alt="logo generico"
+      />
+      <i id="shopping-cart" class="header__i" data-feather="shopping-cart"></i>
+    </header>
+    <main>
+      <section class="banner">
+        <h2 class="banner__h2">Productos Nuevos</h2>
+        <p class="banner__p">Conoce nuestros productos nuevos</p>
+      </section>
+      <section class="products" id="products">
+        <template id="grid-product">
+          <article id="product-id">
+            <img class="products__img" src="" alt="" />
+            <h3 class="products__h3"></h3>
+            <p class="products__p"></p>
+            <button id="boton-comprar">Comprar</button>
+          </article>
+        </template>
+      </section>
+      <section class="cart">
+        <div class="cart__div--header">
+          <h2 class="cart__h2">Carrito</h2>
+          <i class="cart__i" id="cerrar-carrito" data-feather="x"></i>
+        </div>
+        <!-- <div class="cart__div">
+          <img class="cart__img" src="/img/black_shirt.jpg" alt="" />
+          <p id="nombre-producto">Camisa negra bonita</p>
+          <p id="cantidad-producto">2</p>
+          <p id="precio-producto">555</p>
+          <i class="cart__i" id="borrar-producto" data-feather="plus"></i>
+          <i class="cart__i" id="borrar-producto" data-feather="x"></i>
+        </div> -->
+
+        <section class="cart-items"></section>
+        <template id="cart-product-template">
+          <div class="cart__div">
+            <img class="cart__img" src="/img/black_shirt.jpg" alt="" />
+            <p id="nombre-producto">Camisa negra bonita</p>
+            <p id="cantidad-producto">2</p>
+            <p id="precio-producto">555</p>
+            <i class="cart__i" id="borrar-producto" data-feather="plus"></i>
+            <i class="cart__i" id="borrar-producto" data-feather="x"></i>
+          </div>
+        </template>
+
+        <div class="cart__div cart__div--button">
+          <button class="cart__button">Proceder a la compra</button>
+        </div>
+        <div class="cart__div">
+          <p>Total: $<span id="total" class="total"></span></p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

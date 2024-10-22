@@ -1,0 +1,15 @@
+header {
+  @include flexbox-row;
+  justify-content: space-between;
+
+  img {
+    max-width: 20%;
+    max-height: 15vh;
+  }
+
+  .header__i {
+    margin-left: 25px;
+    margin-right: 25px;
+    color: $secondary-color;
+  }
+}
