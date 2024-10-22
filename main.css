@@ -49,6 +49,17 @@ body {
 .cart i {
   cursor: pointer;
 }
+.cart .cart__i {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  border: 2px solid red;
+  stroke-width: 2;
+  color: #fff;
+}
+.cart .cart__i:last-child {
+  margin-right: 15px;
+}
 .cart.show {
   right: 0;
 }
