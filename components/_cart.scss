@@ -23,15 +23,15 @@
     // margin-right: 20px;
   }
 
-  &__img {
+  img {
+    width: 20%;
+    height: 80%;
     object-fit: cover;
-    width: 33%;
-    height: 100%;
   }
 
   &__div {
     width: 100%;
-    height: auto;
+    height: 250px;
     max-height: 150px;
     @include flexbox-row;
     font-size: inherit;
@@ -55,5 +55,10 @@
     // border: 2px solid red;
     max-width: 100%;
     height: auto;
+  }
+
+  .cart__div--total {
+    @include flexbox-row;
+    justify-content: center;
   }
 }

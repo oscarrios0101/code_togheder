@@ -63,10 +63,11 @@
         <section class="cart-items" id="cart-items"></section>
         <template id="cart-product-template">
           <div class="cart__div">
-            <img class="cart__img" src="/img/black_shirt.jpg" alt="" />
-            <p id="nombre-producto">Camisa negra bonita</p>
-            <p id="cantidad-producto">2</p>
-            <p id="precio-producto">555</p>
+            <img class="cart__img" src="" alt="" />
+            <p id="nombre-producto"></p>
+            <p id="cantidad-producto"></p>
+            <p id="precio-producto"></p>
+            <p id="subtotal-producto"></p>
             <i class="cart__i" id="aumentar-producto" data-feather="plus"></i>
             <i class="cart__i" id="borrar-producto" data-feather="x"></i>
           </div>
@@ -77,7 +78,7 @@
             Proceder a la compra
           </button>
         </div>
-        <div class="cart__div">
+        <div class="cart__div cart__div--total">
           <p>Total: $<span id="total" class="total"></span></p>
         </div>
       </section>

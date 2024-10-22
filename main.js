@@ -16,15 +16,15 @@ const products = [
   {
     id: 1,
     name: "Camisa negra bonita",
-    price: 555,
+    price: 4,
     image: "img/black_shirt.jpg",
-    quantity: 1,
+    quantity: 3,
     stock: 10,
   },
   {
     id: 2,
     name: "hoodie cafe",
-    price: 555,
+    price: 2,
     image: "/img/brown_hoddie.jpg",
     quantity: 1,
     stock: 10,
@@ -32,7 +32,7 @@ const products = [
   {
     id: 3,
     name: "Camisa ramen bonita",
-    price: 555,
+    price: 1,
     image: "/img/ramen_shirt.jpg",
     quantity: 1,
     stock: 10,
@@ -50,6 +50,8 @@ function generateShortId() {
 
 const productsSection = document.getElementById("products");
 const productTemplate = document.getElementById("grid-product");
+const cartTemplate = document.getElementById("cart-product-template");
+const cartItemsSection = document.getElementById("cart-items");
 
 // Function to create a product article and append it to the products section
 function createProductArticle(product) {
@@ -69,19 +71,65 @@ function createProductArticle(product) {
 productsSection.addEventListener("click", (event) => {
   if (event.target.id === "add-to-cart-button") {
     console.log("add to cart button clicked");
-    const productId =
-      event.target.parentElement.getAttribute("data-product-id");
+    const productId = event.target
+      .closest("[data-product-id]")
+      .getAttribute("data-product-id");
     console.log("product id", productId);
-    //     const product = products.find((product) => product.id === productId);
-    //     console.log(product);
-    //     cartItems.push(product);
-    //     console.log(cartItems);
+    const product = products.find((product) => product.id === productId);
+    console.log(product);
+    checkProductInCart(product);
+    renderCart();
 
-    //   }
+    console.log(cartItems);
   }
 });
 
-console.log(productsSection);
+//function that creates a template for the cart items
+function renderCart() {
+  cartItemsSection.innerHTML = "";
+  calculateTotal();
+  cartItems.forEach((product) => {
+    const cartItem = cartTemplate.content.cloneNode(true);
+    console.log(product);
+    cartItem.querySelector(".cart__img").src = product.image;
+    cartItem.querySelector("#nombre-producto").innerHTML = `${product.name} |`;
+    cartItem.querySelector("#precio-producto").textContent = `${product.price}`;
+    cartItem.querySelector(
+      "#cantidad-producto"
+    ).innerHTML = `cantidad ${product.quantity} |`;
+
+    cartItem.querySelector("#subtotal-producto").innerHTML = `$ subtotal: ${
+      product.price * product.quantity
+    }`;
+
+    cartItemsSection.appendChild(cartItem);
+  });
+}
+
+//function that calculates the total price of the cart
+function calculateTotal() {
+  let total = 0;
+  cartItems.forEach((product) => {
+    total += product.price * product.quantity;
+  });
+  const totalElement = document.getElementById("total");
+  totalElement.textContent = `$${total}`;
+  return total;
+}
+
+//function that checks if the product is already in the cart
+function checkProductInCart(product) {
+  if (cartItems.includes(product)) {
+    console.log("product already in cart");
+    product.quantity++;
+
+    console.log(product.quantity);
+    // cartItems.push(product);
+  } else {
+    console.log("product not in cart");
+    cartItems.push(product);
+  }
+}
 
 // Loop through the products and create articles
 products.forEach(createProductArticle);
