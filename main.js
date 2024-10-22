@@ -87,6 +87,8 @@ productsSection.addEventListener("click", (event) => {
 //function that creates a template for the cart items
 function renderCart() {
   cartItemsSection.innerHTML = "";
+  renderBadge();
+
   calculateTotal();
   cartItems.forEach((product) => {
     const cartItem = cartTemplate.content.cloneNode(true);
@@ -135,4 +137,18 @@ function checkProductInCart(product) {
 products.forEach(createProductArticle);
 console.log(products);
 
-//function to add an event listener to each button products
+//function that renders the badge
+function renderBadge() {
+  const cartBadge = document.getElementById("cart-badge");
+  let cartBadgeLength = 0;
+  cartItems.forEach((product) => {
+    cartBadgeLength += product.quantity;
+  });
+  cartBadge.textContent = cartBadgeLength;
+
+  if (cartItems.length === 0) {
+    cartBadge.style.display = "none";
+  } else {
+    cartBadge.style.display = "block";
+  }
+}

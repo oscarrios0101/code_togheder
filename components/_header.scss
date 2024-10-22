@@ -1,15 +1,33 @@
 header {
   @include flexbox-row;
-  justify-content: space-between;
+  justify-content: space-around;
 
   img {
     max-width: 20%;
     max-height: 15vh;
   }
 
-  .header__i {
-    margin-left: 25px;
-    margin-right: 25px;
-    color: $secondary-color;
+  .feather {
+    width: 65px;
+    height: 65px;
+  }
+  #shopping-cart {
+    cursor: pointer;
+  }
+
+  .header__div {
+    position: relative;
+    width: auto;
+    .cart-badge {
+      display: none;
+      background-color: #ff0000;
+      color: #ffffff;
+      border-radius: 50%;
+      font-size: 12px;
+      position: absolute;
+      padding: 6px 6px;
+      top: 0;
+      right: 0;
+    }
   }
 }

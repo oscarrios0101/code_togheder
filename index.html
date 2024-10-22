@@ -27,7 +27,14 @@
         src="img/Gemini_Generated_Image_4n0iw34n0iw34n0i.jpg"
         alt="logo generico"
       />
-      <i id="shopping-cart" class="header__i" data-feather="shopping-cart"></i>
+      <div class="header__div">
+        <i
+          id="shopping-cart"
+          class="header__i"
+          data-feather="shopping-cart"
+        ></i>
+        <span id="cart-badge" class="cart-badge"></span>
+      </div>
     </header>
     <main>
       <section class="banner">
@@ -51,14 +58,6 @@
           <h2 class="cart__h2">Carrito</h2>
           <i class="cart__i" id="cerrar-carrito" data-feather="x"></i>
         </div>
-        <!-- <div class="cart__div">
-          <img class="cart__img" src="/img/black_shirt.jpg" alt="" />
-          <p id="nombre-producto">Camisa negra bonita</p>
-          <p id="cantidad-producto">2</p>
-          <p id="precio-producto">555</p>
-          <i class="cart__i" id="borrar-producto" data-feather="plus"></i>
-          <i class="cart__i" id="borrar-producto" data-feather="x"></i>
-        </div> -->
 
         <section class="cart-items" id="cart-items"></section>
         <template id="cart-product-template">

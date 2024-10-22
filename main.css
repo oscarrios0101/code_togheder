@@ -25,25 +25,6 @@ body {
   background-color: #333;
 }
 
-header {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-header img {
-  max-width: 20%;
-  max-height: 15vh;
-}
-header .header__i {
-  margin-left: 25px;
-  margin-right: 25px;
-  color: #fff;
-}
-
 .banner {
   width: 100%;
   height: 100%;
@@ -58,12 +39,15 @@ header .header__i {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 450px;
+  width: 750px;
   height: 700px;
   background-color: #999;
   border-radius: 5px;
   overflow-y: scroll;
   transition: right 0.3s ease-in-out; /* add a transition effect */
+}
+.cart i {
+  cursor: pointer;
 }
 .cart.show {
   right: 0;
@@ -75,9 +59,9 @@ header .header__i {
   text-align: center;
   color: #fff;
 }
-.cart img {
-  width: 20%;
-  height: 80%;
+.cart .cart__img {
+  width: 100px;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -96,6 +80,9 @@ header .header__i {
   justify-content: space-between;
   border-bottom: 2px solid #fff;
   color: #fff;
+}
+.cart #cerrar-carrito {
+  cursor: pointer;
 }
 .cart .cart__div--button {
   width: 100%;
@@ -131,7 +118,6 @@ header .header__i {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 50px;
-  border: 2px solid red;
   width: 100%;
   place-items: center;
   padding: 20px;
@@ -154,4 +140,40 @@ header .header__i {
   height: 80%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+header img {
+  max-width: 20%;
+  max-height: 15vh;
+}
+header .feather {
+  width: 65px;
+  height: 65px;
+}
+header #shopping-cart {
+  cursor: pointer;
+}
+header .header__div {
+  position: relative;
+  width: auto;
+}
+header .header__div .cart-badge {
+  display: none;
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 12px;
+  position: absolute;
+  padding: 6px 6px;
+  top: 0;
+  right: 0;
 }/*# sourceMappingURL=main.css.map */

@@ -2,9 +2,6 @@
 @import "base";
 @import "layout";
 
-// importar header
-@import "components/_header.scss";
-
 // importar banner
 @import "components/_banner.scss";
 
@@ -13,3 +10,6 @@
 
 //importar products-grid
 @import "components/_products-grid.scss";
+
+// importar header
+@import "components/_header.scss";
