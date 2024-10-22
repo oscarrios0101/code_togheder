@@ -44,23 +44,6 @@
     // margin: 20px;
   }
 
-  &__button {
-    // @include flexbox-row;
-    justify-content: center;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s ease;
-  }
-
-  &__button:hover {
-    background-color: #444;
-  }
-
   .cart__div--button {
     @include flexbox-row;
     justify-content: center;

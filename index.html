@@ -35,48 +35,14 @@
         <p class="banner__p">Conoce nuestros productos nuevos</p>
       </section>
       <section class="products" id="products">
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
-        <article id="product-id">
-          <img class="products__img" src="/img/black_shirt.jpg" alt="" />
-          <h3 class="products__title">camisa bonita</h3>
-          <p class="products__price">$555</p>
-          <button id="boton-comprar">Comprar</button>
-        </article>
         <template id="grid-product">
-          <article id="product-id">
+          <article data-product-id="">
             <img class="products__img" src="" alt="" />
-            <h3 class="products__h3"></h3>
-            <p class="products__p"></p>
-            <button id="boton-comprar">Comprar</button>
+            <h3 class="product__title"></h3>
+            <p class="product__price"></p>
+            <button id="add-to-cart-button" class="product__button">
+              Comprar
+            </button>
           </article>
         </template>
       </section>
@@ -94,20 +60,22 @@
           <i class="cart__i" id="borrar-producto" data-feather="x"></i>
         </div> -->
 
-        <section class="cart-items"></section>
+        <section class="cart-items" id="cart-items"></section>
         <template id="cart-product-template">
           <div class="cart__div">
             <img class="cart__img" src="/img/black_shirt.jpg" alt="" />
             <p id="nombre-producto">Camisa negra bonita</p>
             <p id="cantidad-producto">2</p>
             <p id="precio-producto">555</p>
-            <i class="cart__i" id="borrar-producto" data-feather="plus"></i>
+            <i class="cart__i" id="aumentar-producto" data-feather="plus"></i>
             <i class="cart__i" id="borrar-producto" data-feather="x"></i>
           </div>
         </template>
 
         <div class="cart__div cart__div--button">
-          <button class="cart__button">Proceder a la compra</button>
+          <button id="cart__button" class="cart__button">
+            Proceder a la compra
+          </button>
         </div>
         <div class="cart__div">
           <p>Total: $<span id="total" class="total"></span></p>
