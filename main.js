@@ -96,13 +96,15 @@ function renderCart() {
     console.log(product);
     cartItem.querySelector(".cart__div").setAttribute("data-id", product.id);
     cartItem.querySelector(".cart__img").src = product.image;
-    cartItem.querySelector("#nombre-producto").innerHTML = `${product.name} |`;
-    cartItem.querySelector("#precio-producto").textContent = `${product.price}`;
+    cartItem.querySelector("#nombre-producto").innerHTML = ` |${product.name}|`;
+    cartItem.querySelector(
+      "#precio-producto"
+    ).textContent = ` |precio unitario $${product.price}|`;
     cartItem.querySelector(
       "#cantidad-producto"
-    ).innerHTML = `cantidad ${product.quantity} |`;
+    ).innerHTML = `| cantidad ${product.quantity} |`;
 
-    cartItem.querySelector("#subtotal-producto").innerHTML = `$ subtotal: ${
+    cartItem.querySelector("#subtotal-producto").innerHTML = `subtotal: ${
       product.price * product.quantity
     }`;
     console.log(`el id del producto es ${product.id}`);

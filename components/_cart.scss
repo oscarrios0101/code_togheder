@@ -1,110 +1,64 @@
 .cart {
+  background-color: $primary-body-color;
   position: fixed;
   top: 0;
   right: -100%;
   width: 100%;
-  max-width: 750px;
-  height: 650px;
-  background-color: $primary-body-color;
-  border-radius: 5px;
+  width: clamp(500px, 800px, 50%);
+  padding: 15px;
   overflow-y: scroll;
   transition: right 0.3s ease-in-out; /* add a transition effect */
-
-  @include laptops {
-    width: 600px;
-  }
-
-  @include tablets {
-    width: 400px;
-  }
-
-  @include phones {
-    width: 100%;
-  }
-  i {
-    cursor: pointer;
-  }
-
-  .cart__i {
-    width: 24px;
-    height: 24px;
-    padding: 5px;
-    // border: 2px solid red;
-    stroke-width: 2;
-    color: $secondary-color;
-  }
-  .cart__i:last-child {
-    // margin-left: 10px;
-    margin-right: 15px;
-  }
+  color: $secondary-color;
 
   &.show {
     right: 0;
   }
-  &__i {
-    color: $secondary-color;
+}
+
+.cart__div--header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .cart__i {
+    margin-left: 20px;
   }
+}
 
-  &__h2 {
-    text-align: center;
-    color: $secondary-color;
-    // border-bottom: 1px solid $secondary-color;
-    // margin-right: 20px;
-  }
+.cart__div--button,
+.cart__div--total {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.cart__div {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  // padding: 15px;
+  // background-color: whitesmoke;
 
-  .cart__img {
-    // display: none;
-    width: 100px;
-    height: 100%;
-    object-fit: cover;
+  .img_wrapper {
+    width: 250px;
+    // height: 100px;
 
-    @include tablets {
-      height: 20%;
-      border: 2px solid red;
-      // display: none;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-
-    @include phones {
-      // display: none;
-    }
   }
 
-  &__div {
-    width: 100%;
-    height: 250px;
-    max-height: 150px;
-    @include flexbox-row;
-    font-size: inherit;
+  .cart__info {
+    padding: 15px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: space-between;
-    // border: 2px solid red;
-    border-bottom: 2px solid $secondary-color;
-    color: $secondary-color;
-    // margin: 20px;
-  }
-
-  #cerrar-carrito {
-    cursor: pointer;
-  }
-
-  .cart__div--button {
-    @include flexbox-row;
-    justify-content: center;
-    width: auto;
-  }
-
-  .cart__div--header {
-    @include flexbox-row;
-    justify-content: center;
-    // border: 2px solid red;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .cart__div--total {
-    @include flexbox-row;
-    justify-content: center;
-    height: auto;
+    align-items: center;
+    width: 100%;
   }
 }
