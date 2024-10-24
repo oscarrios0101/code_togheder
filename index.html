@@ -61,7 +61,7 @@
 
         <section class="cart-items" id="cart-items"></section>
         <template id="cart-product-template">
-          <div class="cart__div">
+          <div class="cart__div" data-id="${product.id}">
             <img class="cart__img" src="" alt="" />
             <p id="nombre-producto"></p>
             <p id="cantidad-producto"></p>
@@ -71,6 +71,7 @@
               class="cart__i cart__i--add"
               id="aumentar-producto"
               data-feather="plus"
+              data-id=""
             ></i>
             <i class="cart__i" id="borrar-producto" data-feather="x"></i>
             <i class="cart__i" id="eliminar-producto" data-feather="trash"></i>

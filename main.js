@@ -18,7 +18,7 @@ const products = [
     name: "Camisa negra bonita",
     price: 4,
     image: "img/black_shirt.jpg",
-    quantity: 3,
+    quantity: 1,
     stock: 10,
   },
   {
@@ -89,11 +89,12 @@ function renderCart() {
   cartItemsSection.innerHTML = "";
 
   renderBadge();
-
   calculateTotal();
+
   cartItems.forEach((product) => {
     const cartItem = cartTemplate.content.cloneNode(true);
     console.log(product);
+    cartItem.querySelector(".cart__div").setAttribute("data-id", product.id);
     cartItem.querySelector(".cart__img").src = product.image;
     cartItem.querySelector("#nombre-producto").innerHTML = `${product.name} |`;
     cartItem.querySelector("#precio-producto").textContent = `${product.price}`;
@@ -104,8 +105,11 @@ function renderCart() {
     cartItem.querySelector("#subtotal-producto").innerHTML = `$ subtotal: ${
       product.price * product.quantity
     }`;
+    console.log(`el id del producto es ${product.id}`);
+    console.log("imprimiendo el cartItem: ", cartItem);
 
     cartItemsSection.appendChild(cartItem);
+
     cartItemsSection.addEventListener("click", (event) => {
       if (event.target.id === "borrar-producto") {
         console.log("borrar producto");
@@ -115,11 +119,23 @@ function renderCart() {
         event.target.closest(".cart__div").remove();
         // Add code to handle the "eliminar producto" action
       } else if (event.target.id === "aumentar-producto") {
-        console.log("aumentar producto");
-        console.log("");
+        event.stopPropagation(); // Prevent event bubbling
+        const cartItemId = event.target
+          .closest(".cart__div")
+          .getAttribute("data-id");
+        const cartItem = cartItems.find((item) => item.id === cartItemId);
 
-        // Add code to handle the "aumentar producto" action
+        cartItem.quantity++;
+        // Update the cartItems array
+        const updatedCartItems = cartItems.map((item) =>
+          item.id === cartItemId ? cartItem : item
+        );
+        cartItems = updatedCartItems; // Update the cartItems array
+        calculateTotal();
+        renderCart();
       }
+
+      // Add code to handle the "aumentar producto" action
     });
     feather.replace();
   });
@@ -152,7 +168,6 @@ function checkProductInCart(product) {
 
 // Loop through the products and create articles
 products.forEach(createProductArticle);
-console.log(products);
 
 //function that renders the badge
 function renderBadge() {
