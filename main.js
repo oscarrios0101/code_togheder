@@ -110,36 +110,72 @@ function renderCart() {
 
     cartItemsSection.appendChild(cartItem);
 
-    cartItemsSection.addEventListener("click", (event) => {
-      if (event.target.id === "borrar-producto") {
-        console.log("borrar producto");
-        // Add code to handle the "borrar producto" action
-      } else if (event.target.id === "eliminar-producto") {
-        console.log("eliminar producto");
-        event.target.closest(".cart__div").remove();
-        // Add code to handle the "eliminar producto" action
-      } else if (event.target.id === "aumentar-producto") {
-        event.stopPropagation(); // Prevent event bubbling
-        const cartItemId = event.target
-          .closest(".cart__div")
-          .getAttribute("data-id");
-        const cartItem = cartItems.find((item) => item.id === cartItemId);
-
-        cartItem.quantity++;
-        // Update the cartItems array
-        const updatedCartItems = cartItems.map((item) =>
-          item.id === cartItemId ? cartItem : item
-        );
-        cartItems = updatedCartItems; // Update the cartItems array
-        calculateTotal();
-        renderCart();
-      }
-
-      // Add code to handle the "aumentar producto" action
-    });
     feather.replace();
   });
 }
+
+//add a event listener to the cart icons
+cartItemsSection.addEventListener("click", (event) => {
+  if (event.target.id === "borrar-producto") {
+    console.log("borrar producto");
+    event.stopPropagation(); // Prevent event bubbling
+    const cartItemId = event.target
+      .closest(".cart__div")
+      .getAttribute("data-id");
+
+    const cartItem = cartItems.find((item) => item.id === cartItemId);
+
+    if (cartItem.quantity > 1) {
+      cartItem.quantity--;
+      renderCart();
+    } else {
+      // If quantity is 1, remove the item
+      const cartItemIndex = cartItems.findIndex(
+        (item) => item.id === cartItemId
+      );
+      cartItems.splice(cartItemIndex, 1);
+      renderCart();
+    }
+    if (cartItemId.quantity == 0) {
+    }
+  } else if (event.target.id === "eliminar-producto") {
+    console.log("eliminar producto");
+    event.stopPropagation(); // Prevent event bubbling
+
+    const cartItemId = event.target
+      .closest(".cart__div")
+      .getAttribute("data-id");
+
+    const cartItemIndex = cartItems.findIndex((item) => item.id === cartItemId);
+    cartItems.splice(cartItemIndex, 1);
+    renderCart();
+
+    // Add code to handle the "eliminar producto" action
+  } else if (event.target.id === "aumentar-producto") {
+    console.log("aumentar producto");
+    event.stopPropagation(); // Prevent event bubbling
+
+    const cartItemId = event.target
+      .closest(".cart__div")
+      .getAttribute("data-id");
+
+    const cartItem = cartItems.find((item) => item.id === cartItemId);
+
+    cartItem.quantity++;
+
+    // Update the cartItems array
+    const updatedCartItems = cartItems.map((item) =>
+      item.id === cartItemId ? cartItem : item
+    );
+    cartItems = updatedCartItems;
+
+    calculateTotal();
+
+    renderCart();
+  }
+
+  // Add code to handle the "aumentar producto" action
+});
 
 //function that calculates the total price of the cart
 function calculateTotal() {
