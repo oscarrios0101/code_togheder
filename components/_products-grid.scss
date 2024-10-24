@@ -1,23 +1,36 @@
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  width: 85%;
+  margin: auto;
+
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  @include laptops {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  @include tablets {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  @include phones {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
   gap: 50px;
-  // border: 2px solid red;
-  width: 100%;
-  //   height: 400px;
+
   place-items: center;
   padding: 20px;
 
   article {
+    width: 100%;
     padding: 10px;
     display: flex;
     @include flexbox-column;
-    width: 100%;
-    height: 400px;
+    // width: clamp(200px, 100%, 450px);
+    // height: clamp(200px, 100%, 450px);
     border: 2px solid $secondary-color;
+
     img {
-      width: 80%;
-      height: 80%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       //   overflow: hidden;
     }

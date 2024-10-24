@@ -2,13 +2,25 @@
   position: fixed;
   top: 0;
   right: -100%;
-  width: 750px;
-  height: 700px;
+  width: 100%;
+  max-width: 750px;
+  height: 650px;
   background-color: $primary-body-color;
   border-radius: 5px;
   overflow-y: scroll;
   transition: right 0.3s ease-in-out; /* add a transition effect */
 
+  @include laptops {
+    width: 600px;
+  }
+
+  @include tablets {
+    width: 400px;
+  }
+
+  @include phones {
+    width: 100%;
+  }
   i {
     cursor: pointer;
   }
@@ -17,7 +29,7 @@
     width: 24px;
     height: 24px;
     padding: 5px;
-    border: 2px solid red;
+    // border: 2px solid red;
     stroke-width: 2;
     color: $secondary-color;
   }
@@ -45,6 +57,16 @@
     width: 100px;
     height: 100%;
     object-fit: cover;
+
+    @include tablets {
+      height: 20%;
+      border: 2px solid red;
+      // display: none;
+    }
+
+    @include phones {
+      // display: none;
+    }
   }
 
   &__div {
@@ -69,6 +91,7 @@
   .cart__div--button {
     @include flexbox-row;
     justify-content: center;
+    width: auto;
   }
 
   .cart__div--header {
@@ -82,5 +105,6 @@
   .cart__div--total {
     @include flexbox-row;
     justify-content: center;
+    height: auto;
   }
 }
