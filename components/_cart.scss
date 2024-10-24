@@ -16,9 +16,11 @@
   }
   @include tablets {
     width: clamp(500px, 800px, 50%);
+    right: -150%;
   }
   @include phones {
     width: 100%;
+    right: -150%;
 
     // display: none;
   }
